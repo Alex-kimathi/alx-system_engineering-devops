@@ -1,2 +1,2 @@
 #!/bib/bash
-cat /etc/passwd
+ls /etc/passwd
