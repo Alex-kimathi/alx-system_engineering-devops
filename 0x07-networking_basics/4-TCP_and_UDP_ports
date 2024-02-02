@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# the script uses netstat to show all listening ports
+sudo netstat -tunlp
