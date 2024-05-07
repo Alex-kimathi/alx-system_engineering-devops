@@ -3,4 +3,4 @@
 # pass it to a regular expression matching method
 # the match is 'hbtn' or htn
 #
-puts ARGV[0].scan(/h[bt]n$/).join
+puts ARGV[0].scan(/hb?tn$/).join
