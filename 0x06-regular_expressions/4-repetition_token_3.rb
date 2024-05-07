@@ -3,4 +3,4 @@
 # pass it to a regular expression matching method
 # the match is 'hbt't up to n times
 #
-puts ARGV[0].scan(/hb?t?+n$/).join
+puts ARGV[0].scan(/hbt*n$/).join
