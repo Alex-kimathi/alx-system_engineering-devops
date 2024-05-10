@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Ensure the script is running as root
+if [ "$(id -u)" -ne 0 ]; then
+  echo "This script must be run as root" >&2
+  exit 1
+fi
+
+# Backup the current /etc/hosts file
+cp /etc/hosts /etc/hosts.backup
+
+# Add or replace the localhost entry
+grep -q '^127.0.0.2\s\+localhost' /etc/hosts || sed -i '/^127.0.0.1\s\+localhost/c\127.0.0.2\tlocalhost' /etc/hosts
+
+# Add or replace the facebook.com entry
+if grep -q '^8.8.8.8\s\+facebook.com' /etc/hosts; then
+  echo "Entry for facebook.com already set to 8.8.8.8."
+else
+  sed -i '/^8.8.8.8\s\+facebook.com/d' /etc/hosts  # Remove existing entry if not correct
+  echo '8.8.8.8 facebook.com' >> /etc/hosts
+fi
+
+echo "Hosts file updated successfully."
+
