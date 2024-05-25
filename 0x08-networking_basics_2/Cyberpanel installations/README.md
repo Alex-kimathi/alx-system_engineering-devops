@@ -1,1 +1,0 @@
-This script simplfies the process on installing cyberpanel by having all the installations by a simpl scipt
